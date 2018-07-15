@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ninja Gold</title>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+	<p id="bank">Your Gold:</p>
+	
+	<p id="gold">{{session['earn']}}</p>
+
+	<div class="places farm">
+		<h3>Farm</h3>
+		<p>(earns 10-20 golds)</p>
+		<form action="/process_money" method="post">
+		  <input type="hidden" name="building" value="farm" />
+		  <input type="submit" value="Find Gold!"/>
+		</form>
+	</div>
+
+	<div class="places cave">
+		<h3>Cave</h3>
+		<p>(earns 5-10 golds)</p>
+		<form action="/process_money" method="post">
+		  <input type="hidden" name="building" value="cave" />
+		  <input type="submit" value="Find Gold!"/>
+		</form>
+	</div>
+
+	<div class="places house">
+		<h3>House</h3>
+		<p>(earns 2-5 golds)</p>
+		<form action="/process_money" method="post">
+		  <input type="hidden" name="building" value="house" />
+		  <input type="submit" value="Find Gold!"/>
+		</form>
+	</div>
+
+	<div class="places casino">
+		<h3>Casino</h3>
+		<p>(earns/takes 0-50 golds)</p>
+		<form action="/process_money" method="post">
+		  <input type="hidden" name="building" value="casino" />
+		  <input type="submit" value="Find Gold!"/>
+		</form>
+	</div>
+	<h4>Activites:</h4>
+	<div id="activities">
+		{% if 'gold' in session: %}
+			{% if session['gold'] >= 0: %}
+			<p id="green"> You earned {{session['gold']}} golds!</p>
+			{% elif session['gold'] < 0: %}
+			<p id="lose"> You lost {{session['gold']}} golds!</p>
+			{% endif %}
+		{% endif %}
+	</div>
+	<form id="reset" action="/reset" method="post"> 
+		<input type="submit" value="reset">
+	</form>
+</body>
+</html>

@@ -1,0 +1,63 @@
+
+body{
+	background-color:black;
+	color:white;
+}
+
+#bank {
+	margin-left: 15px;
+	display: inline-block;
+	vertical-align: top;
+
+}
+div.places {
+	display: inline-block;
+	border: 1px solid yellow;
+	padding: 5px;
+	text-align: center;
+	width: 150px;
+	height: 150px;
+	vertical-align: top;
+	margin-left: 5px;
+	background-color: indianred;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+h4 {
+	margin-left: 15px;
+}
+
+
+#activities {
+	width:705px;
+	height:200px;
+	border:1px solid yellow;
+	margin-left: 15px;
+	background-color: white;
+	
+	
+	
+}
+#gold {
+	display: inline-block;
+	border: 1px solid yellow;
+	width: 30px;
+	height: 20px;
+	vertical-align: top;
+	color: green;
+	background-color: white;
+}
+
+#green {
+	color: green;
+}
+
+#lose {
+	color: red;
+}
+
+#reset {
+	margin-top: 15px;
+	margin-left: 15px;
+}
