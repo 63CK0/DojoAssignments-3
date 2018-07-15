@@ -1,0 +1,21 @@
+body {
+	text-align: center;
+}
+
+div.box {
+	height: 100px;
+	width: 100px;
+	border: 1px solid black;
+	display: inline-block;
+	color: white;
+	font-weight: bold;
+	vertical-align: top;
+	
+}
+
+.wrong {
+	background-color: red;
+}
+.correct {
+	background-color: green;
+}
