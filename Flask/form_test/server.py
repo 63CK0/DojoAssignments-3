@@ -1,6 +1,8 @@
-from flask import Flask, render_template, redirect, request
+from flask import Flask, render_template, redirect, request, session
 app = Flask(__name__)
 # our index route will handle rendering our form
+app.secret_key = 'ThisisSecret'
+#you need to set a secret key for security purposes
 @app.route('/')
 def index():
     return render_template("index.html")
@@ -9,14 +11,12 @@ def index():
 @app.route('/users', methods=['POST'])
 def create_user():
     print "Got Post Information"
-    # we'll talk about the following two lines after we learn a little more about forms
-    name = request.form['name']
-    email = request.form['email']
-    #redirects back to the '/' route
+    #here we add two properties to session to store the name and email
+    session['name'] = request.form['name']
+    session['email'] = request.form['email']
 
-    return redirect('/')
-@app.route('/users/username')
-def show_user_name():
-
-    return render_template("user.html",username = "Patrick")
+    return redirect('/show')
+@app.route('/show')
+def show_user():
+    return render_template('user.html')
 app.run(debug=True) #run our server
